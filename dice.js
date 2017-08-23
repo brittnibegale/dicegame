@@ -43,41 +43,53 @@ function dice4Strength (userInput1){
 	}
 }
 dice4Strength(userInput1);
+///////////////////////////////////////////////////////////////////////////////////////////////////
+function roll6SidedDice (){
+var dice6Roll= Math.floor(Math.random() * 7 + 1);
+return dice6Roll;
+}
+
+function dice6Strength (userInput1){
+
+	var valueOfDice6= roll6SidedDice();
+	weakness(valueOfDice6);
+
+	if (userInput1 === 2 || userInput1 === 6){
+	strength1.push(valueOfDice6);
+	}
+
+	else{
+	var dice6Negative = valueOfDice6-(valueOfDice6-valueOfDice6);
+	strength1.push(dice6Negative);
+	}
+
+	function weakness(valueOfDice6){
+
+		var diceNumbers= [1,2,3,4,5,6];
+		
+		if (valueOfDice6 === diceNumbers[0]) {
+			console.log("Your superpower is mind-control!");
+		}
+		else if (valueOfDice6 === diceNumbers[1]) {
+			console.log("Your superpower is your charm ;)");
+		}
+		else if (valueOfDice6 === diceNumbers[2]) {
+			console.log("Your superpower is invisablity!");
+		}
+		else if (valueOfDice6 === diceNumbers[3]) {
+			console.log("Your superpower is teleportation!");
+		}
+		else if (valueOfDice6 === diceNumbers[4]) {
+			console.log("Your superpower is shape-shifting!");
+		}
+		else if (valueOfDice6 === diceNumbers[5]) {
+			console.log("Your superpower is X-Ray vision!......don't abuse it");
+		}
+		return valueOfDice6
+	}
+}
+dice6Strength(userInput1);
 
 
 
 
-
-
-// function rollDice6(){
-// var dice6Roll= Math.floor(Math.random() * 7 + 1);
-// return dice6Roll;
-// }
-
-// function superPower(dice6Roll){
-
-// 	rollDice6();
-// 	var valueOfDice6= rollDice6();
-
-// 	var diceNumbers= [1,2,3,4,5,6];
-	
-// 	if (valueOfDice6 = diceNumbers[0]) {
-// 		console.log("Your superpower is mind-control.");
-// 	}
-// 	else if (valueOfDice6 = diceNumbers[1]) {
-// 		console.log("Your superpower is your wit.");
-// 	}
-// 	else if (valueOfDice6 = diceNumbers[2]) {
-// 		console.log("Your superpower is invisability.");
-// 	}
-// 	else if (valueOfDice6 = diceNumbers[3]) {
-// 		console.log("Your superpower is teleportation.");
-// 	}
-// 	else if (valueOfDice6 = diceNumbers[4]) {
-// 		console.log("Your superpower is shape-shifting.");
-// 	}
-// 	else if (valueOfDice6= diceNumbers[5]) {
-// 		console.log("Your superpower is X-Ray vision.")
-// 	}
-// }
-// weakness(dice6Roll);

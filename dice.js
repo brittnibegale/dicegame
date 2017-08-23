@@ -52,7 +52,7 @@ return dice6Roll;
 function dice6Strength (userInput1){
 
 	var valueOfDice6= roll6SidedDice();
-	weakness(valueOfDice6);
+	superpower(valueOfDice6);
 
 	if (userInput1 === 2 || userInput1 === 6){
 	strength1.push(valueOfDice6);
@@ -63,7 +63,7 @@ function dice6Strength (userInput1){
 	strength1.push(dice6Negative);
 	}
 
-	function weakness(valueOfDice6){
+	function superpower(valueOfDice6){
 
 		var diceNumbers= [1,2,3,4,5,6];
 		

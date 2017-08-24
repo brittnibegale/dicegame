@@ -305,6 +305,33 @@ function calculateFinalStrength (strength){
 	return sum1OfStrength;
 }
 
+// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function sayingIfReadyForWar(){
+	var warDecision = prompt("Are you ready for war? yes or no").toLowerCase();
+	return warDecision
+}
+
+function determiningIfReadyForWar (userInput3){
+	if (userInput3 === "yes") {
+		console.log("Alright, the day is here! Let's see if you win the war or not.");
+	}
+	else if(userInput3 === "no"){
+		console.log("Too bad. The war is coming regardless.");
+	}
+}
+
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function determiningIfWarIsWon (sum1OfStrength2){
+
+	if (sum1OfStrength2 <= 10){
+		console.log("Wah, Wah, Wahhhhhhhhh. The world will parish, because you didn't win the war. Nice, you have no friends now. Good luck.");
+	}
+	else{
+		console.log ("Congrats! You did a good thing. You won the war. Drinks on you?");
+	}
+}
+
 function gamePlay (){
 	var firstInput = firstStepInGame();
 	var userInput= firstInput;
@@ -331,22 +358,9 @@ function gamePlay (){
 	var strengthString = usesUserInput6(userInput2, twentySidedResult);
 	strengthArray = addsNumberToStrength(userInput2, strengthString, strengthArray);
 	var sum1OfStrength2 = calculateFinalStrength(strengthArray);
+	var userInput3 = sayingIfReadyForWar();
+	determiningIfReadyForWar(userInput3);
+	determiningIfWarIsWon(sum1OfStrength2);
 }
 
 gamePlay();
-// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// var battleDecision = prompt("Are you ready for war? yes or no").toLowerCase();
-
-// function determiningIfReadyForWar (battleDecision){
-// 	if (battleDecision === "yes") {
-// 		console.log("Alright, the day is here! Let's see if you win the war or not.")
-// 	}
-// 	else if(battleDecision === "no"){
-// 		console.log("Too bad. The war is coming regardless.")
-// 	}
-// }
-// determiningIfReadyForWar(battleDecision);
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// function determiningIfWarIsWon (){
-
-// }

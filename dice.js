@@ -15,13 +15,13 @@ var dice4Roll= Math.floor(Math.random() * 4 + 1);
 return dice4Roll;
 }
 
-function dice4Strength (userInput1){
+function getsDice4Strength (userInput1){
 
 	var valueOfDice4= roll4SidedDice();
-	weakness(valueOfDice4);
+	calculatesWeakness(valueOfDice4);
 
-	if (userInput1 === 1 || userInput1 === 5){
-	var dice4Negative = valueOfDice4-(valueOfDice4-valueOfDice4);
+	if (userInput1 === "1" || userInput1 === "5"){
+	var dice4Negative = 0 - valueOfDice4;
 	strength.push(dice4Negative);
 	}
 
@@ -30,7 +30,7 @@ function dice4Strength (userInput1){
 	}
 }
 
-function weakness(valueOfDice4){
+function calculatesWeakness(valueOfDice4){
 
 	var diceNumbers= [1,2,3,4];
 	
@@ -49,7 +49,7 @@ function weakness(valueOfDice4){
 	return valueOfDice4;
 }
 
-dice4Strength(userInput1);
+getsDice4Strength(userInput1);
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 function roll6SidedDice (){
 var dice6Roll= Math.floor(Math.random() * 6 + 1);
@@ -59,18 +59,18 @@ return dice6Roll;
 function getsDice6Strength (userInput1){
 
 	var valueOfDice6= roll6SidedDice();
-	superpower(valueOfDice6);
+	calculatesSuperpower(valueOfDice6);
 
-	if (userInput1 === 2 || userInput1 === 6){
+	if (userInput1 === "2" || userInput1 === "6"){
 	strength.push(valueOfDice6);
 	}
 
 	else{
-	var dice6Negative = valueOfDice6-(valueOfDice6-valueOfDice6);
+	var dice6Negative = 0 - valueOfDice6;
 	strength.push(dice6Negative);
 	}
 }
-function superpower(valueOfDice6){
+function calculatesSuperpower(valueOfDice6){
 
 	var diceNumbers= [1,2,3,4,5,6];
 	
@@ -101,13 +101,13 @@ var dice8Roll= Math.floor(Math.random() * 8 + 1);
 return dice8Roll;
 }
 
-function dice8Strength (userInput1){
+function getsDice8Strength (userInput1){
 
 	var valueOfDice8= roll8SidedDice();
-	fuelSource(valueOfDice8);
+	calculatesFuelSource(valueOfDice8);
 
-	if (userInput1 === 4 || userInput1 === 8){
-	var dice8Negative = valueOfDice8-(valueOfDice8-valueOfDice8);
+	if (userInput1 === "4" || userInput1 === "8"){
+	var dice8Negative = 0 - valueOfDice8;
 	strength.push(dice8Negative);
 	}
 
@@ -115,7 +115,7 @@ function dice8Strength (userInput1){
 	strength.push(valueOfDice8);
 	}
 }
-function fuelSource(valueOfDice8){
+function calculatesFuelSource(valueOfDice8){
 
 	var diceNumbers= [1,2,3,4,5,6,7,8];
 	
@@ -145,7 +145,7 @@ function fuelSource(valueOfDice8){
 	}
 	return valueOfDice8
 }
-dice8Strength(userInput1);
+getsDice8Strength(userInput1);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function calculateFirstStrength (strength){
 
@@ -156,7 +156,7 @@ console.log("Your current strength is at:");
 console.log(calculateFirstStrength(strength));
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-var userInput2= prompt ("A war is coming and your current strength isn't high enough. What do you think you need to work on to win the war? speed, agility, or skill");
+var userInput2= prompt("A war is coming and your current strength isn't high enough. What do you think you need to work on to win the war? speed, agility, or skill");
 
 var modifiedUserInput2= userInput2.toLowerCase();
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -166,10 +166,10 @@ var dice10Roll= Math.floor(Math.random() * 10 + 1);
 return dice10Roll;
 }
 
-function dice10Strength (modifiedUserInput2){
+function getsDice10Strength (modifiedUserInput2){
 
 	var valueOfDice10= roll10SidedDice();
-	trainingTime(valueOfDice10);
+	calculatesTrainingTime(valueOfDice10);
 
 	if (modifiedUserInput2 === "skill"){
 	strength.push(valueOfDice10);
@@ -180,7 +180,7 @@ function dice10Strength (modifiedUserInput2){
 	strength.push(dice10Negative);
 	}
 }
-function trainingTime(valueOfDice10){
+function calculatesTrainingTime(valueOfDice10){
 
 	var diceNumbers= [1,2,3,4,5,6,7,8,9,10];
 	
@@ -194,14 +194,14 @@ function trainingTime(valueOfDice10){
 		console.log("You did a moderate amount of training.");
 	}
 	else if (valueOfDice10 === diceNumbers[7] || valueOfDice10 === diceNumbers[8] || valueOfDice10 === diceNumbers[9]) {
-		console.log("In the words of Fergie: My body stay vicious; I be up in the gym just working on my fitness");
+		console.log("Fergie best decribes your training as: My body stay vicious; I be up in the gym just working on my fitness");
 	}
 	else if (valueOfDice10 === diceNumbers[10]) {
 		console.log("GYM. TAN. LAUNDRY..... you slayed training.");
 	}
 	return valueOfDice10
 }
-dice10Strength(modifiedUserInput2);
+getsDice10Strength(modifiedUserInput2);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function roll12SidedDice (){
@@ -209,39 +209,88 @@ var dice12Roll= Math.floor(Math.random() * 12 + 1);
 return dice12Roll;
 }
 
-function dice12Strength (modifiedUserInput2){
+function getsDice12Strength (modifiedUserInput2){
 
 	var valueOfDice12= roll12SidedDice();
-	endurance(valueOfDice12);
+	calculatesEndurance(valueOfDice12);
 
 	
 	strength.push(valueOfDice12);
-	
-
-	function endurance(valueOfDice12){
-
-		var diceNumbers= [1,2,3,4,5,6,7,8,9,10,11,12];
-		
-		if (valueOfDice12 === diceNumbers[0] || valueOfDice12 === diceNumbers[1]) {
-			console.log("Having the endurance of a virgin boy having sex for the first time is NOT a good thing...."); 
-		}
-		else if (valueOfDice12 === diceNumbers[2] || valueOfDice12 === diceNumbers[3] || valueOfDice12 === diceNumbers[4]) {
-			console.log("Your endurance = weak");
-		}
-		else if (valueOfDice12 === diceNumbers[5] || valueOfDice12 === diceNumbers[6]) {
-			console.log("Pressing the greater than button on a machine doesn't count as increasing your endurance.");
-		}
-		else if (valueOfDice12 === diceNumbers[7] || valueOfDice12 === diceNumbers[8] || valueOfDice12 === diceNumbers[9]) {
-			console.log("You have endurance that of an average middle age man..... not good enough.");
-		}
-		else if (valueOfDice12 === diceNumbers[10] || valueOfDice12 === diceNumbers[11]) {
-			console.log("Now, we're talkin'. Your endurance is good.");
-		}
-		else if (valueOfDice12 === diceNumbers[12]) {
-			console.log("Your endurance has reached Ironman status!");
-		}
-		return valueOfDice12
-	}
 }
-dice12Strength(modifiedUserInput2);
+function calculatesEndurance(valueOfDice12){
+
+	var diceNumbers= [1,2,3,4,5,6,7,8,9,10,11,12];
+	
+	if (valueOfDice12 === diceNumbers[0] || valueOfDice12 === diceNumbers[1]) {
+		console.log("Having the endurance of a virgin boy having sex for the first time is NOT a good thing...."); 
+	}
+	else if (valueOfDice12 === diceNumbers[2] || valueOfDice12 === diceNumbers[3] || valueOfDice12 === diceNumbers[4]) {
+		console.log("Your endurance = weak");
+	}
+	else if (valueOfDice12 === diceNumbers[5] || valueOfDice12 === diceNumbers[6]) {
+		console.log("Pressing the greater than button on a machine doesn't count as increasing your endurance.");
+	}
+	else if (valueOfDice12 === diceNumbers[7] || valueOfDice12 === diceNumbers[8] || valueOfDice12 === diceNumbers[9]) {
+		console.log("You have endurance that of an average middle age man..... not good enough.");
+	}
+	else if (valueOfDice12 === diceNumbers[10] || valueOfDice12 === diceNumbers[11]) {
+		console.log("Now, we're talkin'. Your endurance is good.");
+	}
+	else if (valueOfDice12 === diceNumbers[12]) {
+		console.log("Your endurance has reached Ironman status!");
+	}
+	return valueOfDice12
+}
+getsDice12Strength(modifiedUserInput2);
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function roll20SidedDice (){
+var dice20Roll= Math.floor(Math.random() * 20 + 1);
+return dice20Roll;
+}
+
+function getsDice20Strength (modifiedUserInput2){
+
+	var valueOfDice20= roll20SidedDice();
+	determinesPrebattleWisdom(valueOfDice20);
+
+	
+	strength.push(valueOfDice20);
+}
+function determinesPrebattleWisdom(valueOfDice20){
+
+	var diceNumbers= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+	
+	if ( valueOfDice20 === diceNumbers[0] || valueOfDice20 === diceNumbers[1] || valueOfDice20 === diceNumbers[2] ) {
+		console.log( "Wise words before battle: It's not whether you get knocked down; it's whether you get up.-Vince Lombardi" ); 
+	}
+	else if ( valueOfDice20 === diceNumbers[3] || valueOfDice20 === diceNumbers[4] || valueOfDice20 === diceNumbers[5] ) {
+		console.log( "Wise words before battle: I always felt that my greatest asset was not my physical ability, it was my mental ability.- Bruce Jenner (aka Caitlin Jenner) Take that as you please." );
+	}
+	else if ( valueOfDice20 === diceNumbers[6] || valueOfDice20 === diceNumbers[7] || valueOfDice20 === diceNumbers[8] ) {
+		console.log( "Wise words before battle: Don't lose.-Yourself" );
+	}
+	else if ( valueOfDice20 === diceNumbers[9] || valueOfDice20 === diceNumbers[10] || valueOfDice20 === diceNumbers[11] ) {
+		console.log( "Wise words before battle: If you can dodge a wrench, you can dodge a ball.-Dodgeball" );
+	}
+	else if ( valueOfDice20 === diceNumbers[12] || valueOfDice20 === diceNumbers[13] || valueOfDice20 === diceNumbers[14] ) {
+		console.log( "Wise words before battle: Pain is temporary. -Lance Armstrong" );
+	}
+	else if ( valueOfDice20 === diceNumbers[15] || valueOfDice20 === diceNumbers[16] || valueOfDice20 === diceNumbers[17] ) {
+		console.log( "Wise words before battle: Suck it up. That's what being a man is.-Coach Taylor" );
+	}
+	else if ( valueOfDice20 === diceNumbers[18] || valueOfDice20 === diceNumbers[19] || valueOfDice20 === diceNumbers[20] ) {
+		console.log( "Wise words before battle: The more difficult the victory, the greater the happiness in winning.-Pele" );
+	}
+	return valueOfDice20
+}
+getsDice20Strength(modifiedUserInput2);
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function calculateFinalStrength (strength){
+
+var sum1OfStrength= strength[0] + strength[1] + strength[2] + strength[3] + strength[4] + strength[5];
+return sum1OfStrength;
+}
+console.log("Your new strength is:");
+console.log(calculateFinalStrength(strength));
+/////////////////////////////////////////////////////////////////////////////////////

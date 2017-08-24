@@ -60,7 +60,7 @@ function calculatesWeakness (valueOfDice4){
 function usesUserInput2 (userInput, sixSidedResult){
 
 	if (userInput === "2" || userInput === "6"){
-		return valueOfDice6;
+		return sixSidedResult;
 	}
 
 	else{
@@ -73,7 +73,7 @@ function getsDice6Output(){
 
 	var valueOfDice6= rollDice(6);
 	calculatesSuperpower(valueOfDice6);
-	return valueOfDice6
+	return valueOfDice6;
 }
 
 function calculatesSuperpower(valueOfDice6){
@@ -114,69 +114,79 @@ function gamePlay (){
 
 gamePlay();
 // // ///////////////////////////////////////////////////////////////////////////////////////
-// function roll8SidedDice (){
-// var dice8Roll= Math.floor(Math.random() * 8 + 1);
-// return dice8Roll;
-// }
+function usesUserInput3 (userInput, eightSidedResult){
 
-// function getsDice8Strength (userInput1){
+	if (userInput === "4" || userInput === "8"){
+	var dice8Negative = 0 - eightSidedResult; //make sure to change this
+	return dice8Negative;
+	}
 
-// 	var valueOfDice8= roll8SidedDice();
-// 	calculatesFuelSource(valueOfDice8);
+	else{
+	return eightSidedResult;
+	}
+}
 
-// 	if (userInput1 === "4" || userInput1 === "8"){
-// 	var dice8Negative = 0 - valueOfDice8;
-// 	strength.push(dice8Negative);
-// 	}
+function getsDice8Output (){
 
-// 	else{
-// 	strength.push(valueOfDice8);
-// 	}
-// 	return userInput1
-// }
-// function calculatesFuelSource(valueOfDice8){
+	var valueOfDice8= rollDice(8);
+	calculatesFuelSource(valueOfDice8);
+	return valueOfDice8
+}
 
-// 	var diceNumbers= [1,2,3,4,5,6,7,8];
+function calculatesFuelSource(valueOfDice8){
+
+	var diceNumbers= [1,2,3,4,5,6,7,8];
 	
-// 	if (valueOfDice8 === diceNumbers[0]) {
-// 		console.log("Your fuel source is grilled cheese!");
-// 	}
-// 	else if (valueOfDice8 === diceNumbers[1]) {
-// 		console.log("Your fuel source is nuts!.... like almonds or cashews.... not the other version. That would be agressive.");
-// 	}
-// 	else if (valueOfDice8 === diceNumbers[2]) {
-// 		console.log("Your fuel source is chocolate ice cream!");
-// 	}
-// 	else if (valueOfDice8 === diceNumbers[3]) {
-// 		console.log("Your fuel source is Papa John's!");
-// 	}
-// 	else if (valueOfDice8 === diceNumbers[4]) {
-// 		console.log("Your fuel source is sushi!");
-// 	}
-// 	else if (valueOfDice8 === diceNumbers[5]) {
-// 		console.log("Your fuel source is PBJ's!");
-// 	}
-// 	else if (valueOfDice8 === diceNumbers[6]) {
-// 		console.log("Your fuel source is PO-TATE-OS!");
-// 	}
-// 	else if (valueOfDice8 === diceNumbers[7]) {
-// 		console.log("Your fuel source is Goldfish!... the crackers.");
-// 	}
-// }
-// function gamePlay (){
-// 	var passingInput = getsDice4Strength();
-// 	var passingInputAgain = getsDice6Strength(passingInput);
-// 	getsDice8Strength(passingInputAgain);
-// }
-// gamePlay();
-// ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// function calculateFirstStrength (strength){
+	if (valueOfDice8 === diceNumbers[0]) {
+		console.log("Your fuel source is grilled cheese!");
+	}
+	else if (valueOfDice8 === diceNumbers[1]) {
+		console.log("Your fuel source is nuts!.... like almonds or cashews.... not the other version. That would be agressive.");
+	}
+	else if (valueOfDice8 === diceNumbers[2]) {
+		console.log("Your fuel source is chocolate ice cream!");
+	}
+	else if (valueOfDice8 === diceNumbers[3]) {
+		console.log("Your fuel source is Papa John's!");
+	}
+	else if (valueOfDice8 === diceNumbers[4]) {
+		console.log("Your fuel source is sushi!");
+	}
+	else if (valueOfDice8 === diceNumbers[5]) {
+		console.log("Your fuel source is PBJ's!");
+	}
+	else if (valueOfDice8 === diceNumbers[6]) {
+		console.log("Your fuel source is PO-TATE-OS!");
+	}
+	else if (valueOfDice8 === diceNumbers[7]) {
+		console.log("Your fuel source is Goldfish!... the crackers.");
+	}
+}
 
-// var sum1OfStrength= strength[0] + strength[1] + strength[2];
-// return sum1OfStrength;
-// }
-// console.log("Your current strength is at:");
-// console.log(calculateFirstStrength(strength));
+// ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function calculateFirstStrength (strength){
+
+var sum1OfStrength= strength[0] + strength[1] + strength[2];
+console.log("Your current strength is at:" + sum1OfStrength);
+return sum1OfStrength;
+}
+function gamePlay (){
+	var firstInput = firstStepInGame();
+	var userInput= firstInput;
+	var fourSidedResult = getsDice4Output();
+	var strengthString = usesUserInput(userInput, fourSidedResult);
+	var strengthArray = [];
+	strengthArray = addsNumberToStrength(userInput, strengthString, strengthArray);
+	var sixSidedResult = getsDice6Output();
+	var strengthString = usesUserInput2(userInput, sixSidedResult);
+	strengthArray = addsNumberToStrength(userInput, strengthString, strengthArray);
+	var eightSidedResult = getsDice8Output();
+	var strengthString = usesUserInput3(userInput, eightSidedResult);
+	strengthArray = addsNumberToStrength(userInput, strengthString, strengthArray);
+	var sumOfStrength1 = calculateFirstStrength(strengthArray);
+}
+
+gamePlay();
 // //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // var userInput2= prompt("A war is coming and your current strength isn't high enough. What do you think you need to work on to win the war? speed, agility, or skill");

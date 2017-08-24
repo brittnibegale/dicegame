@@ -170,6 +170,55 @@ var sum1OfStrength= strength[0] + strength[1] + strength[2];
 console.log("Your current strength is at:" + sum1OfStrength);
 return sum1OfStrength;
 }
+
+// //////////////////////////////////////////////////////////////////////////////////////////////////////////
+function secondStepInGame (){
+	var userInput2= prompt("A war is coming and your current strength isn't high enough. What do you think you need to work on to win the war? speed, agility, or skill");
+
+	var modifiedUserInput2= userInput2.toLowerCase();
+	return modifiedUserInput2;
+}
+// /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function usesUserInput4 (userInput2, tenSidedResult){
+	if (userInput2 === "skill"){
+		return tenSidedResult;
+	}
+
+	else{
+		var dice10Negative = 0 - tenSidedResult;
+		return dice10Negative;
+	}
+}
+
+function getsDice10Output (){
+
+	var valueOfDice10= rollDice(10);
+	calculatesTrainingTime(valueOfDice10);
+	return valueOfDice10
+}
+
+function calculatesTrainingTime(valueOfDice10){
+
+	var diceNumbers= [1,2,3,4,5,6,7,8,9,10];
+	
+	if (valueOfDice10 === diceNumbers[0] || valueOfDice10 === diceNumbers[1]) {
+		console.log("You chose pizza and tacos over training."); 
+	}
+	else if (valueOfDice10 === diceNumbers[2] || valueOfDice10 === diceNumbers[3] || valueOfDice10 === diceNumbers[4]) {
+		console.log("Well, you tried training out, but failed.");
+	}
+	else if (valueOfDice10 === diceNumbers[5] || valueOfDice10 === diceNumbers[6]) {
+		console.log("You did a moderate amount of training.");
+	}
+	else if (valueOfDice10 === diceNumbers[7] || valueOfDice10 === diceNumbers[8] || valueOfDice10 === diceNumbers[9]) {
+		console.log("Fergie best decribes your training as: My body stay vicious; I be up in the gym just working on my fitness");
+	}
+	else if (valueOfDice10 === diceNumbers[10]) {
+		console.log("GYM. TAN. LAUNDRY..... you slayed training.");
+	}	
+}
+
 function gamePlay (){
 	var firstInput = firstStepInGame();
 	var userInput= firstInput;
@@ -184,57 +233,15 @@ function gamePlay (){
 	var strengthString = usesUserInput3(userInput, eightSidedResult);
 	strengthArray = addsNumberToStrength(userInput, strengthString, strengthArray);
 	var sumOfStrength1 = calculateFirstStrength(strengthArray);
+	var secondInput = secondStepInGame();
+	var userInput2 = secondInput;
+	var tenSidedResult = getsDice10Output();
+	var strengthString = usesUserInput4(userInput2, tenSidedResult);
+	strengthArray = addsNumberToStrength(userInput2, strengthString, strengthArray);
 }
 
+
 gamePlay();
-// //////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// var userInput2= prompt("A war is coming and your current strength isn't high enough. What do you think you need to work on to win the war? speed, agility, or skill");
-
-// var modifiedUserInput2= userInput2.toLowerCase();
-// /////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// function roll10SidedDice (){
-// var dice10Roll= Math.floor(Math.random() * 10 + 1);
-// return dice10Roll;
-// }
-
-// function getsDice10Strength (modifiedUserInput2){
-
-// 	var valueOfDice10= roll10SidedDice();
-// 	calculatesTrainingTime(valueOfDice10);
-
-// 	if (modifiedUserInput2 === "skill"){
-// 	strength.push(valueOfDice10);
-// 	}
-
-// 	else{
-// 	var dice10Negative = valueOfDice10-(valueOfDice10-valueOfDice10);
-// 	strength.push(dice10Negative);
-// 	}
-// }
-// function calculatesTrainingTime(valueOfDice10){
-
-// 	var diceNumbers= [1,2,3,4,5,6,7,8,9,10];
-	
-// 	if (valueOfDice10 === diceNumbers[0] || valueOfDice10 === diceNumbers[1]) {
-// 		console.log("You chose pizza and tacos over training."); 
-// 	}
-// 	else if (valueOfDice10 === diceNumbers[2] || valueOfDice10 === diceNumbers[3] || valueOfDice10 === diceNumbers[4]) {
-// 		console.log("Well, you tried training out, but failed.");
-// 	}
-// 	else if (valueOfDice10 === diceNumbers[5] || valueOfDice10 === diceNumbers[6]) {
-// 		console.log("You did a moderate amount of training.");
-// 	}
-// 	else if (valueOfDice10 === diceNumbers[7] || valueOfDice10 === diceNumbers[8] || valueOfDice10 === diceNumbers[9]) {
-// 		console.log("Fergie best decribes your training as: My body stay vicious; I be up in the gym just working on my fitness");
-// 	}
-// 	else if (valueOfDice10 === diceNumbers[10]) {
-// 		console.log("GYM. TAN. LAUNDRY..... you slayed training.");
-// 	}
-// 	return valueOfDice10
-// }
-// getsDice10Strength(modifiedUserInput2);
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // function roll12SidedDice (){

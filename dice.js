@@ -3,48 +3,25 @@
 // add a run game function for game
 //run game with strength is going to have a variable that will be returned too
 function firstStepInGame (){
-var userInput= prompt ("You are a newly found superhero! Your trainer has just shown up with 8 cards to determine your future. Choose a card 1-8 to determine your future!");
+var userInput = prompt ("You are a newly found superhero! Your trainer has just shown up with 8 cards to determine your future. Choose a card 1-8 to determine your future!");
 
 console.log("OK! The card you chose says....");
 	return userInput
 }
 
-function addsNumberToStrength (userInput, fourSidedResult){
-	var strengthString = usesUserInput(userInput, fourSidedResult);
+function addsNumberToStrength (userInput, result,strengthArray){
+	var strengthString = usesUserInput(userInput, result);
 	var strengthNumbers = parseInt(strengthString);
-	var strengthArray = [];
 	strengthArray.push(strengthNumbers);
+	return strengthArray;
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function rollDice (numberofsides){
-	if (numberofsides === 4){
-		var dice4Roll=Math.floor(Math.random() * 4 + 1);
-		return dice4Roll;
-	}
-	else if (numberofsides === 6){
-		var dice6Roll= Math.floor(Math.random() * 6 + 1);
-		return dice6Roll;
-	}
-	else if (numberofsides === 8){
-		var dice8Roll= Math.floor(Math.random() * 8 + 1);
-	 	return dice8Roll;
-	}
-	else if (numberofsides === 10){
-		var dice10Roll= Math.floor(Math.random() * 10 + 1);
-	 	return dice10Roll;
-	}
-	else if (numberofsides === 12){
-		var dice12Roll= Math.floor(Math.random() * 12 + 1);
-	 	return dice12Roll;
-	}
-	else if (numberofsides === 20){
-		var dice20Roll= Math.floor(Math.random() * 20 + 1);
-	 	return dice20Roll;
-	}
+	return Math.floor(Math.random() * numberofsides + 1);
 }
-//////////////////////////////////////////////////////////////////////////////////////
 
+////////////////////////////////////////////////////////////////////////////////////
 function usesUserInput(userInput, fourSidedResult){
 	if (userInput === "1" || userInput === "5"){
 		var dice4Negative = 0 - fourSidedResult;
@@ -54,12 +31,14 @@ function usesUserInput(userInput, fourSidedResult){
 		return fourSidedResult; // just deleted var firstpositivestrength
 	}	
 }
+
 function getsDice4Output (){
 	var valueOfDice4= rollDice(4);
 	calculatesWeakness(valueOfDice4);
 	return valueOfDice4;
 }
-function calculatesWeakness(valueOfDice4){
+
+function calculatesWeakness (valueOfDice4){
 
 	var diceNumbers= [1,2,3,4];
 	
@@ -80,32 +59,32 @@ function gamePlay (){
 	var firstInput = firstStepInGame();
 	var userInput= firstInput;
 	var fourSidedResult = getsDice4Output();
-	addsNumberToStrength(userInput, fourSidedResult);
+	var strengthArray = [];
+	strengthArray = addsNumberToStrength(userInput, fourSidedResult, strengthArray);
+	
 }
 gamePlay();
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// fix getdice where function roll6SidedDice is put rollDice(6)
 
-//function roll6SidedDice (){
-// var dice6Roll= Math.floor(Math.random() * 6 + 1);
-// return dice6Roll;
-// }
-
-// function getsDice6Strength (userInput1){
-
-// 	var valueOfDice6= roll6SidedDice();
-// 	calculatesSuperpower(valueOfDice6);
+// function usesUserInput2 (userInput, sixSidedResult){
 
 // 	if (userInput1 === "2" || userInput1 === "6"){
-// 	strength.push(valueOfDice6);
+// 		return valueOfDice6;
 // 	}
 
 // 	else{
-// 	var dice6Negative = 0 - valueOfDice6;
-// 	strength.push(dice6Negative);
+// 		var dice6Negative = 0 - valueOfDice6;
+// 		return dice6Negative;
 // 	}
-// 	return userInput1
 // }
+
+// function getsDice6Output(){
+
+// 	var valueOfDice6= rollDice(6);
+// 	calculatesSuperpower(valueOfDice6);
+// 	return valueOfDice6
+// }
+
 // function calculatesSuperpower(valueOfDice6){
 
 // 	var diceNumbers= [1,2,3,4,5,6];
@@ -129,6 +108,17 @@ gamePlay();
 // 		console.log("Your superpower is X-Ray vision!......don't abuse it");
 // 	}
 // }
+
+// function gamePlay (){
+// 	var firstInput = firstStepInGame();
+// 	var userInput= firstInput;
+// 	var fourSidedResult = getsDice4Output();
+// 	addsNumberToStrength(userInput, fourSidedResult);
+// 	var sixSidedResult = getsDice6Output();
+// 	addsNumberToStrength(userInput, sixSidedResult);
+// }
+
+// gamePlay();
 // // ///////////////////////////////////////////////////////////////////////////////////////
 // function roll8SidedDice (){
 // var dice8Roll= Math.floor(Math.random() * 8 + 1);

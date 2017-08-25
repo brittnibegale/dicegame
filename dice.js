@@ -3,6 +3,7 @@
 function firstStepInGame (){
 
 var userInput = prompt ("You are a newly found superhero! Your trainer has just shown up with 8 cards to determine your future. Choose a card 1-8 to determine your future!");
+	
 	while (true){
 		if (userInput === "1"){
 			console.log("OK! The card you chose says....");
@@ -81,14 +82,14 @@ function createsStrength2Negatives(userInput2, result, positiveString){
 
 function getsDice4Output (){
 
-	var valueOfDice4= rollDice(4);
+	var valueOfDice4 = rollDice(4);
 	calculatesWeakness(valueOfDice4);
 	return valueOfDice4;
 }
 
 function calculatesWeakness (valueOfDice4){
 
-	var diceNumbers= [1,2,3,4];
+	var diceNumbers = [1,2,3,4];
 	
 	if (valueOfDice4 === diceNumbers[0]) {
 		console.log("Your weakness is chocolate.");
@@ -108,14 +109,14 @@ function calculatesWeakness (valueOfDice4){
 
 function getsDice6Output(){
 
-	var valueOfDice6= rollDice(6);
+	var valueOfDice6 = rollDice(6);
 	calculatesSuperpower(valueOfDice6);
 	return valueOfDice6;
 }
 
 function calculatesSuperpower(valueOfDice6){
 
-	var diceNumbers= [1,2,3,4,5,6];
+	var diceNumbers = [1,2,3,4,5,6];
 	
 	if (valueOfDice6 === diceNumbers[0]) {
 		console.log("Your superpower is mind-control!");
@@ -141,14 +142,14 @@ function calculatesSuperpower(valueOfDice6){
 
 function getsDice8Output (){
 
-	var valueOfDice8= rollDice(8);
+	var valueOfDice8 = rollDice(8);
 	calculatesFuelSource(valueOfDice8);
 	return valueOfDice8
 }
 
 function calculatesFuelSource(valueOfDice8){
 
-	var diceNumbers= [1,2,3,4,5,6,7,8];
+	var diceNumbers = [1,2,3,4,5,6,7,8];
 	
 	if (valueOfDice8 === diceNumbers[0]) {
 		console.log("Your fuel source is grilled cheese!");
@@ -179,7 +180,7 @@ function calculatesFuelSource(valueOfDice8){
 // // ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function calculateStrength (strength){
 
-	var sum1OfStrength= strength[0] + strength[1] + strength[2];
+	var sum1OfStrength = strength[0] + strength[1] + strength[2];
 	console.log("Your current strength is at:" + sum1OfStrength);
 	return sum1OfStrength;
 }
@@ -209,14 +210,14 @@ function secondStepInGame (){
 
 function getsDice10Output (){
 
-	var valueOfDice10= rollDice(10);
+	var valueOfDice10 = rollDice(10);
 	calculatesTrainingTime(valueOfDice10);
 	return valueOfDice10;
 }
 
 function calculatesTrainingTime(valueOfDice10){
 
-	var diceNumbers= [1,2,3,4,5,6,7,8,9,10];
+	var diceNumbers = [1,2,3,4,5,6,7,8,9,10];
 	
 	if (valueOfDice10 === diceNumbers[0] || valueOfDice10 === diceNumbers[1]) {
 		console.log("You chose pizza and tacos over training."); 
@@ -241,17 +242,16 @@ function createsStrengthOnlyPositive (twelveSidedResult){
 	return twelveSidedResult;
 }
 
-
 function getsDice12Output (){
 
-	var valueOfDice12= rollDice(12);
+	var valueOfDice12 = rollDice(12);
 	calculatesEndurance(valueOfDice12);
 	return valueOfDice12;
 }
 
 function calculatesEndurance(valueOfDice12){
 
-	var diceNumbers= [1,2,3,4,5,6,7,8,9,10,11,12];
+	var diceNumbers = [1,2,3,4,5,6,7,8,9,10,11,12];
 	
 	if (valueOfDice12 === diceNumbers[0] || valueOfDice12 === diceNumbers[1]) {
 		console.log("Having the endurance of a virgin boy having sex for the first time is NOT a good thing...."); 
@@ -277,14 +277,14 @@ function calculatesEndurance(valueOfDice12){
 
 function getsDice20Output (){
 
-	var valueOfDice20= rollDice(20);
+	var valueOfDice20 = rollDice(20);
 	determinesPrebattleWisdom(valueOfDice20);
 	return valueOfDice20;
 }
 
 function determinesPrebattleWisdom(valueOfDice20){
 
-	var diceNumbers= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+	var diceNumbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
 	
 	if ( valueOfDice20 === diceNumbers[0] || valueOfDice20 === diceNumbers[1] || valueOfDice20 === diceNumbers[2] ) {
 		console.log( "Wise words before battle: It's not whether you get knocked down; it's whether you get up.-Vince Lombardi" ); 
@@ -312,7 +312,7 @@ function determinesPrebattleWisdom(valueOfDice20){
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function calculateFinalStrength (strength){
 
-	var sum1OfStrength= strength[0] + strength[1] + strength[2] + strength[3] + strength[4] + strength[5];
+	var sum1OfStrength = strength[0] + strength[1] + strength[2] + strength[3] + strength[4] + strength[5];
 	console.log("Your new strength is:" + sum1OfStrength);
 	return sum1OfStrength;
 }
@@ -320,6 +320,7 @@ function calculateFinalStrength (strength){
 // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function sayingIfReadyForWar(){
+
 	var warDecision = prompt("Are you ready for war? yes or no").toLowerCase();
 	while(true){
 		if(warDecision === "yes"){
@@ -335,6 +336,7 @@ function sayingIfReadyForWar(){
 }
 
 function determiningIfReadyForWar (userInput3){
+
 	if (userInput3 === "yes") {
 		console.log("Alright, the day is here! Let's see if you win the war or not.");
 	}
@@ -355,8 +357,9 @@ function determiningIfWarIsWon (sum1OfStrength2){
 }
 
 function gamePlay (){
+
 	var firstInput = firstStepInGame();
-	var userInput= firstInput;
+	var userInput = firstInput;
 	var fourSidedResult = getsDice4Output();
 	var strengthString = createsStrength3Positives(userInput, fourSidedResult, "1" , "5");
 	var strengthArray = [];

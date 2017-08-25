@@ -5,9 +5,15 @@
 function firstStepInGame (){
 
 var userInput = prompt ("You are a newly found superhero! Your trainer has just shown up with 8 cards to determine your future. Choose a card 1-8 to determine your future!");
-
-console.log("OK! The card you chose says....");
-	return userInput
+	while (true){
+		if (userInput <= 8){
+			console.log("OK! The card you chose says....");
+			return userInput;
+		}
+		else if(userInput > 8){
+			var userInput = prompt ("Please re-enter your card choice. 1-8");
+		}	
+	}
 }
 
 function addsNumberToStrength (userInput, strengthString,strengthArray){
@@ -136,7 +142,7 @@ function calculatesFuelSource(valueOfDice8){
 		console.log("Your fuel source is nuts!.... like almonds or cashews.... not the other version. That would be agressive.");
 	}
 	else if (valueOfDice8 === diceNumbers[2]) {
-		console.log("Your fuel source is chocolate ice cream!");
+		console.log("Your fuel source is vanilla ice cream!");
 	}
 	else if (valueOfDice8 === diceNumbers[3]) {
 		console.log("Your fuel source is Papa John's!");
@@ -166,9 +172,23 @@ function calculateStrength (strength){
 // //////////////////////////////////////////////////////////////////////////////////////////////////////////
 function secondStepInGame (){
 
-	var userInput2= prompt("A war is coming and your current strength isn't high enough. What do you think you need to work on to win the war? speed, agility, or skill");
-	var modifiedUserInput2= userInput2.toLowerCase();
-	return modifiedUserInput2;
+	var userInput2 = prompt("A war is coming and your current strength isn't high enough. What do you think you need to work on to win the war? speed, agility, or skill");
+	var modifiedUserInput2 = userInput2.toLowerCase();
+		while (true) {
+			if (modifiedUserInput2 === "skills"){
+				return modifiedUserInput2;
+			}
+			else if (modifiedUserInput2 === "agility"){
+				return modifiedUserInput2;
+			}
+			else if (modifiedUserInput2 === "speed"){
+				return modifiedUserInput2;
+			}
+			else {
+				var userInput2 = prompt ("Please re-enter: skills, agility, or speed");
+				var modifiedUserInput2 = userInput2.toLowerCase();
+			}
+		}
 }
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -309,7 +329,17 @@ function calculateFinalStrength (strength){
 
 function sayingIfReadyForWar(){
 	var warDecision = prompt("Are you ready for war? yes or no").toLowerCase();
-	return warDecision
+	while(true){
+		if(warDecision === "yes"){
+		return warDecision;
+		}
+		else if (warDecision === "no"){
+		return warDecision;
+		}
+		else{
+		var warDecision = prompt ("Please answer: yes or no").toLowerCase();
+		}
+	}
 }
 
 function determiningIfReadyForWar (userInput3){
@@ -324,7 +354,7 @@ function determiningIfReadyForWar (userInput3){
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function determiningIfWarIsWon (sum1OfStrength2){
 
-	if (sum1OfStrength2 <= 10){
+	if (sum1OfStrength2 <= 15){
 		console.log("Wah, Wah, Wahhhhhhhhh. The world will parish, because you didn't win the war. Nice, you have no friends now. Good luck.");
 	}
 	else{

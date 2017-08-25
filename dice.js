@@ -1,16 +1,42 @@
 "use strict"
-//add something here so if not 1-8 is put in it will restart
-// add a run game function for game
-//run game with strength is going to have a variable that will be returned too
+
 function firstStepInGame (){
 
 var userInput = prompt ("You are a newly found superhero! Your trainer has just shown up with 8 cards to determine your future. Choose a card 1-8 to determine your future!");
 	while (true){
-		if (userInput <= 8){
+		if (userInput === "1"){
 			console.log("OK! The card you chose says....");
 			return userInput;
 		}
-		else if(userInput > 8){
+		else if (userInput === "2"){
+			console.log("OK! The card you chose says....");
+			return userInput;
+		}
+		else if (userInput === "3"){
+			console.log("OK! The card you chose says....");
+			return userInput;
+		}
+		else if (userInput === "4"){
+			console.log("OK! The card you chose says....");
+			return userInput;
+		}
+		else if (userInput === "5"){
+			console.log("OK! The card you chose says....");
+			return userInput;
+		}
+		else if (userInput === "6"){
+			console.log("OK! The card you chose says....");
+			return userInput;
+		}
+		else if (userInput === "7"){
+			console.log("OK! The card you chose says....");
+			return userInput;
+		}
+		else if (userInput === "8"){
+			console.log("OK! The card you chose says....");
+			return userInput;
+		}
+		else{
 			var userInput = prompt ("Please re-enter your card choice. 1-8");
 		}	
 	}
@@ -248,17 +274,6 @@ function calculatesEndurance(valueOfDice12){
 }
 
 // // //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// function usesUserInput6 (userInput2, twentySidedResult){
-	
-// 	if (userInput2 === "speed"){
-// 		return twentySidedResult;
-// 	}
-// 	else {
-// 		var dice20Negative = 0 - twentySidedResult;
-// 		return dice20Negative;
-// 	}
-// }
-
 
 function getsDice20Output (){
 

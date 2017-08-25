@@ -30,16 +30,28 @@ function rollDice (numberofsides){
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
-function usesUserInput(userInput, fourSidedResult){
 
-	if (userInput === "1" || userInput === "5"){
-		var dice4Negative = 0 - fourSidedResult;
-		return dice4Negative; 
+function createsStrength3Positives(userInput, result, integerString1, integerString2 ){
+
+	if (userInput === integerString1 || userInput === integerString2){
+		var diceNegative = 0 - result;
+		return diceNegative; 
 	}	
 	else{
-		return fourSidedResult; // just deleted var firstpositivestrength
+		return result; 
 	}	
 }
+
+function createsStrength2Negatives(userInput2, result, positiveString){
+	if (userInput2 === positiveString){
+		return result;
+	}
+	else {
+		var diceNegative = 0 - result;
+		return diceNegative;
+	}
+}
+/////////////////////////////////////////////////////////////////////////////////////
 
 function getsDice4Output (){
 
@@ -67,18 +79,6 @@ function calculatesWeakness (valueOfDice4){
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-
-function usesUserInput2 (userInput, sixSidedResult){
-
-	if (userInput === "2" || userInput === "6"){
-		return sixSidedResult;
-	}
-
-	else{
-		var dice6Negative = 0 - sixSidedResult;
-		return dice6Negative;
-	}
-}
 
 function getsDice6Output(){
 
@@ -111,18 +111,7 @@ function calculatesSuperpower(valueOfDice6){
 	}
 }
 
-// // ///////////////////////////////////////////////////////////////////////////////////////
-function usesUserInput3 (userInput, eightSidedResult){
-
-	if (userInput === "4" || userInput === "8"){
-	var dice8Negative = 0 - eightSidedResult; //make sure to change this
-	return dice8Negative;
-	}
-
-	else{
-	return eightSidedResult;
-	}
-}
+// // // ///////////////////////////////////////////////////////////////////////////////////////
 
 function getsDice8Output (){
 
@@ -161,7 +150,7 @@ function calculatesFuelSource(valueOfDice8){
 	}
 }
 
-// ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// // ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function calculateStrength (strength){
 
 	var sum1OfStrength= strength[0] + strength[1] + strength[2];
@@ -172,7 +161,7 @@ function calculateStrength (strength){
 // //////////////////////////////////////////////////////////////////////////////////////////////////////////
 function secondStepInGame (){
 
-	var userInput2 = prompt("A war is coming and your current strength isn't high enough. What do you think you need to work on to win the war? speed, agility, or skill");
+	var userInput2 = prompt("A war is coming and your current strength isn't high enough. What do you think you need to work on to win the war? speed, agility, or skills");
 	var modifiedUserInput2 = userInput2.toLowerCase();
 		while (true) {
 			if (modifiedUserInput2 === "skills"){
@@ -190,19 +179,7 @@ function secondStepInGame (){
 			}
 		}
 }
-// /////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-function usesUserInput4 (userInput2, tenSidedResult){
-	
-	if (userInput2 === "skill"){
-		return tenSidedResult;
-	}
-
-	else{
-		var dice10Negative = 0 - tenSidedResult;
-		return dice10Negative;
-	}
-}
+// // /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function getsDice10Output (){
 
@@ -232,8 +209,8 @@ function calculatesTrainingTime(valueOfDice10){
 	}	
 }
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function usesUserInput5 (twelveSidedResult){
+// // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function createsStrengthOnlyPositive (twelveSidedResult){
 	
 	return twelveSidedResult;
 }
@@ -270,17 +247,17 @@ function calculatesEndurance(valueOfDice12){
 	}
 }
 
-// //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function usesUserInput6 (userInput2, twentySidedResult){
+// // //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// function usesUserInput6 (userInput2, twentySidedResult){
 	
-	if (userInput2 === "speed"){
-		return twentySidedResult;
-	}
-	else {
-		var dice20Negative = 0 - twentySidedResult;
-		return dice20Negative;
-	}
-}
+// 	if (userInput2 === "speed"){
+// 		return twentySidedResult;
+// 	}
+// 	else {
+// 		var dice20Negative = 0 - twentySidedResult;
+// 		return dice20Negative;
+// 	}
+// }
 
 
 function getsDice20Output (){
@@ -366,26 +343,26 @@ function gamePlay (){
 	var firstInput = firstStepInGame();
 	var userInput= firstInput;
 	var fourSidedResult = getsDice4Output();
-	var strengthString = usesUserInput(userInput, fourSidedResult);
+	var strengthString = createsStrength3Positives(userInput, fourSidedResult, "1" , "5");
 	var strengthArray = [];
 	strengthArray = addsNumberToStrength(userInput, strengthString, strengthArray);
 	var sixSidedResult = getsDice6Output();
-	var strengthString = usesUserInput2(userInput, sixSidedResult);
+	var strengthString = createsStrength3Positives(userInput, sixSidedResult, "2" , "6");
 	strengthArray = addsNumberToStrength(userInput, strengthString, strengthArray);
 	var eightSidedResult = getsDice8Output();
-	var strengthString = usesUserInput3(userInput, eightSidedResult);
+	var strengthString = createsStrength3Positives(userInput, eightSidedResult, "4" , "8");
 	strengthArray = addsNumberToStrength(userInput, strengthString, strengthArray);
 	var sumOfStrength1 = calculateStrength(strengthArray);
 	var secondInput = secondStepInGame();
 	var userInput2 = secondInput;
 	var tenSidedResult = getsDice10Output();
-	var strengthString = usesUserInput4(userInput2, tenSidedResult);
+	var strengthString = createsStrength2Negatives(userInput2, tenSidedResult, "skills");
 	strengthArray = addsNumberToStrength(userInput2, strengthString, strengthArray);
 	var twelveSidedResult = getsDice12Output();
-	var strengthString = usesUserInput5(twelveSidedResult);
+	var strengthString = createsStrengthOnlyPositive(twelveSidedResult);
 	strengthArray = addsNumberToStrength(userInput2, strengthString, strengthArray);
 	var twentySidedResult = getsDice20Output();
-	var strengthString = usesUserInput6(userInput2, twentySidedResult);
+	var strengthString = createsStrength2Negatives(userInput2, twentySidedResult, "speed");
 	strengthArray = addsNumberToStrength(userInput2, strengthString, strengthArray);
 	var sum1OfStrength2 = calculateFinalStrength(strengthArray);
 	var userInput3 = sayingIfReadyForWar();
